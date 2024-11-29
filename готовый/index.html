@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Молодежь, Росмолодежь, Форумы"/>
+    <meta name="description" content="Форумы Росмолодёжи – образовательные площадки, которые помогают молодым людям найти свой путь">
+    <title>Форумы Молодёжи</title>
+    <link rel="icon" type="image/png" href="images/fav.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Oswald:wght@600&display=swap" rel="stylesheet">
+   <style>
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    color: white;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    color: black;
+}
+
+.main-button { /* Новое имя класса для основной кнопки */
+    background-color: #8C64D8;
+    color: #fff; 
+    border: none; 
+    border-radius: 40px;
+    width: 400px;   
+    height: 50px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin: 0 auto;
+}
+   
+.main-button:hover {
+    box-shadow: 0 0 10px rgba(153, 0, 255, 0.5); 
+}
+   
+.main-button:active {
+    background-color: transparent; 
+    color: #ffffff;
+    border: 2px solid #8C64D8; 
+}
+
+/* Стили для кнопок вопросов */
+.faq-list .button.plus {
+  background-color: #8C64D8;
+  border: none;
+  font-size: 18px;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%; /* Круглая форма */
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-right: 150px;
+  transform: translateY(-50%); /* Центрирование по вертикали */
+  transition: transform 0.3s ease; /* Плавный переход для поворота */
+  cursor: pointer;
+}
+
+.faq-list .button.plus.active {
+  transform: translateY(-50%) rotate(45deg); /* Поворот на 45 градусов */
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <header class="header">
+            <div class="logo">
+                <img src="images/logotip.svg" alt="Логотип">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="me.html">О нас</a></li>
+                    <li><a href="kontakt.html">Контакты</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="banner">
+              <img src="images/баннер.png" alt="banner" class="bann">
+              <h1 class="h1">Форумы </br> Молодёжи</h1>
+              <button class="main-button forma.html" onclick="window.location.href='forma.html'">Стать участником</button>
+            </div>
+          </div>
+          
+            <div class="forum-cards">
+                <div class="forum-card">
+                    <h2>1 форум</h2>
+                    <p>Регион</p>
+                    <div class="tags">
+                        <span class="tag world">world</span>
+                        <span class="tag career">карьера</span>
+                        <span class="tag region">развитие региона</span>
+                    </div>
+                    <p>Даты проведения:</p>
+                    <p>1 - 8 мая</p>
+                </div>
+                <div class="forum-card">
+                    <h2>2 форум</h2>
+                    <p>Регион</p>
+                    <div class="tags">
+                        <span class="tag production">производство</span>
+                        <span class="tag region">развитие региона</span>
+                        <span class="tag ecology">экология</span>
+                    </div>
+                    <p>Даты проведения:</p>
+                    <p>10 мая - 1 июня</p>
+                </div>
+                <div class="forum-card">
+                    <h2>3 форум</h2>
+                    <p>Регион</p>
+                    <div class="tags">
+                        <span class="tag production">производство</span>
+                        <span class="tag education">наука и образование</span>
+                    </div>
+                    <p>Даты проведения:</p>
+                    <p>9 - 23 августа</p>
+                </div>
+            </div>
+            <div class="questions">
+            <h2>Часто задаваемые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <p>Что делать, если некомфортно ехать одному?</p>
+                    <button class="button plus">+</button>
+                </div>
+                <div class="faq-item">
+                    <p>Кто может стать участником форумов платформы Росмолодежь.События?</p>
+                    <button class="button plus">+</button>
+                </div>
+                <div class="faq-item">
+                    <p>Где проходят форумы?</p>
+                    <button class="button plus">+</button>
+                </div>
+                <div class="faq-item">
+                    <p>Участие в форумах платное?</p>
+                    <button class="button plus">+</button>
+                </div>
+                <div class="faq-item">
+                    <p>Как подать заявку на участие в форуме в качестве волонтера?</p>
+                    <button class="button plus">+</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>YouthWave, © 2024. Политика конфиденциальности</p>
+    </footer>
+
+</body>
+</html>
