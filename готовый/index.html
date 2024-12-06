@@ -88,29 +88,41 @@ span {
   transform: translateY(-50%) rotate(45deg); /* Поворот на 45 градусов */
 }
 
+@media (max-width: 375px){
+    .faq-list .button.plus {
+        right: -135px;
+    }
+}
+
 
     </style>
 </head>
 <body>
     <!-- Шапка -->
-    <header>
-        <header class="header">
-            <div class="logo">
-                <img src="images/logotip.svg" alt="Логотип">
+    <nav class="navbar">
+        <div class="container-menu">
+          <div class="navbar__wrap">
+            <div class="hamb">
+              <div class="hamb__field" id="hamb">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
             </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="me.html">О нас</a></li>
-                    <li><a href="kontakt.html">Контакты</a></li>
-                </ul>
-            </nav>
-    </header>
+            <img src="images/logotip.svg">
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="me.html">О нас</a></li>
+                <li><a href="kontakt.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="popup" id="popup"></div>
     <main>
         <div class="container">
             <div class="banner">
               <img src="images/баннер.png" alt="banner" class="bann">
-              <h1 class="h1">Форумы </br> Молодёжи</h1>
+              <h1>Форумы </br> Молодёжи</h1>
               <button class="main-button forma.html" onclick="window.location.href='forma.html'">Стать участником</button>
             </div>
           </div>
@@ -179,6 +191,6 @@ span {
     <footer>
         <p>YouthWave, © 2024. Политика конфиденциальности</p>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>

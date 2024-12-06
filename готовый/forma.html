@@ -85,20 +85,27 @@ form button[type="submit"]:active {
     </style>
 </head>
 <body>
-        <header class="header">
-            <div class="logo">
-                <img src="images/logotip.svg" alt="Логотип">
+    <nav class="navbar">
+        <div class="container-menu">
+          <div class="navbar__wrap">
+            <div class="hamb">
+              <div class="hamb__field" id="hamb">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
             </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="me.html">О нас</a></li>
-                    <li><a href="kontakt.html">Контакты</a></li>
-                </ul>
-            </nav>
-    </header>
+            <img src="images/logotip.svg">
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="me.html">О нас</a></li>
+                <li><a href="kontakt.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="popup" id="popup"></div>
  <main>
-    <div class="container">
+    <div class="form-container">
         <h1>Заполните контактные данные</h1>
         <form>
             <label for="name">Имя:</label>
@@ -124,5 +131,6 @@ form button[type="submit"]:active {
             <p>YouthWave, © 2024 Политика конфиденциальности</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -70,19 +70,25 @@ p {
     </style>
 </head>
 <body>
-    <header>
-        <header class="header">
-            <div class="logo">
-                <img src="images/logotip.svg" alt="Логотип">
+    <nav class="navbar">
+        <div class="container-menu">
+          <div class="navbar__wrap">
+            <div class="hamb">
+              <div class="hamb__field" id="hamb">
+                <span class="bar"></span> <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
             </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="me.html">О нас</a></li>
-                    <li><a href="kontakt.html">Контакты</a></li>
-                </ul>
-            </nav>
-    </header>
+            <img src="images/logotip.svg">
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="me.html">О нас</a></li>
+                <li><a href="kontakt.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="popup" id="popup"></div>
     <div class="container-me">
         <div class="content-me">
             <h1>Форумная дирекция</h1>
@@ -121,5 +127,6 @@ p {
     <footer>
         <p>YouthWave, © 2024. Политика конфиденциальности</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
