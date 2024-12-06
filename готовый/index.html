@@ -9,6 +9,9 @@
     <link rel="icon" type="image/png" href="images/fav.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+
    <style>
 
 h1 {
@@ -68,25 +71,49 @@ span {
 }
 
 /* Стили для кнопок вопросов */
-.faq-list .button.plus {
-  background-color: #8C64D8;
-  border: none;
-  font-size: 18px;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 50%; /* Круглая форма */
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  margin-right: 150px;
-  transform: translateY(-50%); /* Центрирование по вертикали */
-  transition: transform 0.3s ease; /* Плавный переход для поворота */
-  cursor: pointer;
-}
+.accordion-button {
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-left: 1rem; /* Отступ от текста */
+            top: 100px;
+            align-items: center;
 
-.faq-list .button.plus.active {
-  transform: translateY(-50%) rotate(45deg); /* Поворот на 45 градусов */
-}
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-button:not(.collapsed) {
+        background-color: white;
+        box-shadow: none;
+        }
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ключевое изменение: выравнивание по горизонтали */
+        }
+
+        .accordion-header p {
+            margin-bottom: 0; /* Убираем нижний отступ у текста */
+            flex-grow: 1; /* Текст занимает оставшееся пространство */
+        }
+        .container-accor {
+            border: none;
+        }
+
+        .accordion-item {
+            border: none;
+        }
+
 
 @media (max-width: 375px){
     .faq-list .button.plus {
@@ -161,36 +188,79 @@ span {
                     <p>9 - 23 августа</p>
                 </div>
             </div>
-            <div class="questions">
-            <h2>Часто задаваемые вопросы</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <p>Что делать, если некомфортно ехать одному?</p>
-                    <button class="button plus">+</button>
+         
+            <div class="container container-accor">
+                <div class="questions">
+                    <h2>Часто задаваемые вопросы</h2>
+                    <div class="faq-list accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <p>Что делать, если некомфортно ехать одному?</p>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"></button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    Ответ на первый вопрос.  Здесь можно написать подробный ответ.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+            <p>Кто может стать участником форумов платформы Росмолодежь.События?</p>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"></button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ответ на второй вопрос.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <p>Кто может стать участником форумов платформы Росмолодежь.События?</p>
-                    <button class="button plus">+</button>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <p>Где проходят форумы?</p>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"></button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ответ на третий вопрос.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <p>Где проходят форумы?</p>
-                    <button class="button plus">+</button>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <p>Участие в форумах платное?</p>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"></button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ответ на четвертый вопрос.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <p>Участие в форумах платное?</p>
-                    <button class="button plus">+</button>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <p>Как подать заявку на участие в форуме в качестве волонтера?</p>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"></button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Ответ на пятый вопрос.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <p>Как подать заявку на участие в форуме в качестве волонтера?</p>
-                    <button class="button plus">+</button>
-                </div>
-            </div>
             </div>
         </div>
+    </div>
+
+        
+    
+    
+                            
     </main>
     <footer>
         <p>YouthWave, © 2024. Политика конфиденциальности</p>
     </footer>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
