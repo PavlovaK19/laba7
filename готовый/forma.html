@@ -53,6 +53,14 @@ form button[type="submit"]:active {
     border: 2px solid #8C64D8; 
 }
 
+.role-choice {
+            display: flex;
+            gap: 10px; /* Отступ между элементами */
+            margin-bottom: 10px;
+        }
+        .role-choice label {
+            align-self: flex-start; /* Выравнивание лейбла */
+        }
 @media (max-width: 1024px) {
     label {
         margin-left: 200px;
@@ -118,7 +126,32 @@ form button[type="submit"]:active {
             <input type="tel" id="phone" required>
 
             <label for="event">Мероприятие:</label>
-            <input type="text" id="event" required>
+<select name="event" id="event">
+  <option value="">Выберите мероприятие</option>
+  <option value="event1">Мероприятие 1</option>
+  <option value="event2">Мероприятие 2</option>
+  <option value="event3">Мероприятие 3</option>
+</select>
+
+<label for="file">Файл:</label>
+<input type="file" id="file" accept=".pdf, .doc, .docx">
+
+<div class="popup" id="popup">
+    <div class="popup__content">
+      <h1>Вы зарегистрированы!</h1>
+      <button type="button" onclick="closePopup()">Закрыть</button>
+    </div>
+  </div>
+  <div id="popup" style="display:none;"></div>
+
+  
+  <script>
+  function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+  }
+  </script>
+
 
             <button type="submit" class="send-button">Отправить заявку</button>
 

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация волонтера</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #8C64D8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #8C64D8;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Регистрация волонтера</h2>
+        <form id="volunteerForm" novalidate>
+            <div class="form-group">
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <span class="error-message" id="firstNameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <span class="error-message" id="lastNameError"></span>
+            </div>
+             <div class="form-group">
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+             </div>
+             <div class="form-group">
+                <label for="event">Выберите мероприятие:</label>
+                <select id="event" name="event" required>
+                    <option value="" disabled selected>Выберите мероприятие</option>
+                    <option value="УТРО">УТРО</option>
+                    <option value="ШУМ">ШУМ</option>
+                    <option value="Таврида.АРТ">Таврида.АРТ</option>
+                    <option value="МедиаДвиж">МедиаДвиж</option>
+                </select>
+                <span class="error-message" id="eventError"></span>
+            </div>
+             <div class="form-group">
+                <label for="documents">Загрузить документы:</label>
+                <input type="file" id="documents" name="documents" multiple required>
+                <span class="error-message" id="documentsError"></span>
+            </div>
+            <button type="submit">Подать заявку</button>
+        </form>
+    </div>
+
+    <script src="scriptvol.js"></script>
+</body>
+</html>

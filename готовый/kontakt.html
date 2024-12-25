@@ -8,62 +8,151 @@
     <title>Контакты</title>
     <link rel="icon" type="image/png" href="images/fav.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>
+    <script src="map.js"></script> 
     <style>
-h2 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    color: black;
-}
 
-h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: black;
-}
-
-p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-}
-
-a {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: black;
-}
-
-
-@media (max-width: 375px) {
-
-    .container {
-      display: flex;
-      justify-content: center;
+    h2 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        color: black;
     }
 
-    .info {
+    h3 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        color: black;
+    }
+
+    p {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+    }
+
+    a {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: black;
+    }
+    #map {
+        height: 600px;
+        width: 2500px;
+        float: left;
+        margin-top: 30px;
+    }
+    .filters {
+        margin-top: 30px;
+        float: left;
+        display: flex;
+        align-items: baseline;
+    }
+    .region-cards-container {
+        float: left;
+        width: 700px;
+    }
+
+    label {
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+
+    footer {
+      margin-top: 700px;
+    }
+
+    .main-button { /* Новое имя класса для основной кнопки */
+    background-color: #8C64D8;
+    color: #fff; 
+    border: none; 
+    border-radius: 40px;
+    width: 400px;   
+    height: 50px;
+    font-size: 20px; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin: 35px auto;
+}
+   
+.main-button:hover {
+    box-shadow: 0 0 10px rgba(153, 0, 255, 0.5); 
+}
+   
+.main-button:active {
+    background-color: transparent; 
+    color: #ffffff;
+    border: 2px solid #8C64D8; 
+}
+    
+    @media (max-width: 1024px) {
+      #map {
+          width: 990px;
+        }
+        footer {
+          margin-top: 0px;
+        }
+        .main-button {
+          margin-top: 750px;
+        }
+    }
+
+    @media (max-width: 375px) {
+
+        .container {
+          display: flex;
+          justify-content: center;
+        }
+
+        .info {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .info-item img {
+            width: 40px;
+            height: 40px;
+        }
+        .info-item p{
+            font-size: 12px;
+        }
+
+        .region-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .region-card {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        #map {
+          width: 360px;
+        }
+        
+        input {
+          width: 320px;
+          font-family: 'Inter', sans-serif;
+        }
+
+        .filters {
+        margin-top: 30px;
+        float: left;
+        display: flex;
+        align-items: baseline;
         flex-direction: column;
-        gap: 10px;
     }
-    .info-item img {
-        width: 40px;
-        height: 40px;
+    .main-button {
+          margin-top: 800px;
+          width: 300px;
+          height: 30px;
+          font-size: 15px;
+        }
     }
-    .info-item p{
-        font-size: 12px;
-    }
-
-    .region-container {
-        flex-direction: column; 
-        align-items: center;  
-    }
-
-    .region-card {
-        width: 90%;
-        margin: 10px auto; 
-    }
-}
-
     </style>
 </head>
 <body>
@@ -86,83 +175,100 @@ a {
     </div>
   </nav>
   <div class="popup" id="popup"></div>
-<main>
-        <div class="container-kont">
-            <div class="info">
-                <div class="info-item">
-                    <img src="images/map.png">
-                    <p>Адрес:<br>г. Москва, 111111, Большой пер., д. 1</p>
-                </div>
-                <div class="info-item">
-                    <img src="images/phone.png">
-                    <p>Телефон:<br>88005553535</p>
-                </div>
-                <div class="info-item">
-                    <img src="images/time.png">
-                    <p>Время работы:<br>Пн-Пт: 10:00-19:00<br>Сб-Вс: Выходной</p>
-                </div>
-                <div class="info-item">
-                    <img src="images/email.png">
-                    <p>Электронная почта:<br>forum@mail.ru</p>
-                </div>
-            </div>
-        </div>
+  <main>
+          <div class="container-kont">
+              <div class="info">
+                  <div class="info-item">
+                      <img src="images/map.png">
+                      <p>Адрес:<br>г. Москва, 111111, Большой пер., д. 1</p>
+                  </div>
+                  <div class="info-item">
+                      <img src="images/phone.png">
+                      <p>Телефон:<br>88005553535</p>
+                  </div>
+                  <div class="info-item">
+                      <img src="images/time.png">
+                      <p>Время работы:<br>Пн-Пт: 10:00-19:00<br>Сб-Вс: Выходной</p>
+                  </div>
+                  <div class="info-item">
+                      <img src="images/email.png">
+                      <p>Электронная почта:<br>forum@mail.ru</p>
+                  </div>
+              </div>
+          </div>
+  
+          <section>
+              <h2>Региональные дирекции</h2>
+              <div class="region-container">
 
-        <section>
-            <h2>Региональные дирекции</h2>
-            <div class="region-container">
-              <div class="region-card">
-                <h3>Всероссийский молодежный форум «FFF»</h3>
-                <div class="region-info">
-                  <img src="images/map.png" alt="Местоположение">
-                  <p>Область</p>
+                <div class="region-card">
+                  <h3>Всероссийский молодежный форум «FFF»</h3>
+                  <div class="region-info">
+                    <img src="images/map.png" alt="Местоположение">
+                    <p>Область</p>
+                  </div>
+                  <div class="region-info">
+                    <img src="images/phone.png" alt="Телефон">
+                    <p>88005553535</p>
+                  </div>
+                  <div class="region-info">
+                    <img src="images/email.png" alt="Почта">
+                    <p>AAA@forum.ru</p>
+                  </div>
                 </div>
-                <div class="region-info">
-                  <img src="images/phone.png" alt="Телефон">
-                  <p>88005553535</p>
-                </div>
-                <div class="region-info">
-                  <img src="images/email.png" alt="Почта">
-                  <p>AAA@forum.ru</p>
+
+                  <div class="region-card">
+                    <h3>Всероссийский молодежный форум «FFF»</h3>
+                    <div class="region-info">
+                      <img src="images/map.png" alt="Местоположение">
+                      <p>Область</p>
+                    </div>
+                    <div class="region-info">
+                      <img src="images/phone.png" alt="Телефон">
+                      <p>88005553535</p>
+                    </div>
+                    <div class="region-info">
+                      <img src="images/email.png" alt="Почта">
+                      <p>AAA@forum.ru</p>
+                    </div>
+                  </div>
+
+                <div class="region-card">
+                  <h3>Всероссийский молодежный форум «FFF»</h3>
+                  <div class="region-info">
+                    <img src="images/map.png" alt="Местоположение">
+                    <p>Область</p>
+                  </div>
+                  <div class="region-info">
+                    <img src="images/phone.png" alt="Телефон">
+                    <p>88005553535</p>
+                  </div>
+                  <div class="region-info">
+                    <img src="images/email.png" alt="Почта">
+                    <p>AAA@forum.ru</p>
+                  </div>
                 </div>
               </div>
-              <div class="region-card">
-                <h3>Всероссийский молодежный форум «FFF»</h3>
-                <div class="region-info">
-                  <img src="images/map.png" alt="Местоположение">
-                  <p>Область</p>
-                </div>
-                <div class="region-info">
-                  <img src="images/phone.png" alt="Телефон">
-                  <p>88005553535</p>
-                </div>
-                <div class="region-info">
-                  <img src="images/email.png" alt="Почта">
-                  <p>AAA@forum.ru</p>
-                </div>
-              </div>
-              <div class="region-card">
-                <h3>Всероссийский молодежный форум «FFF»</h3>
-                <div class="region-info">
-                  <img src="images/map.png" alt="Местоположение">
-                  <p>Область</p>
-                </div>
-                <div class="region-info">
-                  <img src="images/phone.png" alt="Телефон">
-                  <p>88005553535</p>
-                </div>
-                <div class="region-info">
-                  <img src="images/email.png" alt="Почта">
-                  <p>AAA@forum.ru</p>
-                </div>
-              </div>
-            </div>
           </section>
-          
-</main>
-    <footer>
-        <p>YouthWave, © 2024. Политика конфиденциальности</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+  
+          <div class="filters">
+              <input type="date" id="dateFilter">
+              <label for="typeFilter">Тип мероприятия:</label>
+              <select id="typeFilter">
+                <option value="">Все типы</option>
+                <option value="Производство">Производство</option>
+                <option value="Медиа">Медиа</option>
+                <option value="Культура">Культура</option>
+              </select>
+            </div>
+            <div id="map"></div>
+            <div class="region-cards-container"></div>
+            <button class="main-button volonter.html" onclick="window.location.href='volonter.html'">Регистрация волонтеров</button>
+  </main>
+
+  <footer>
+    <p>YouthWave, © 2024. Политика конфиденциальности</p>
+</footer>
+
+  </body>
+  </html>
